@@ -1,4 +1,4 @@
-"use strict";
+import "./chat.pug.js";
 
 export const DEFAULT_USER_NAME = "%username";
 
@@ -27,24 +27,7 @@ export class Chat {
     }
 
     render() {
-        this.el.innerHTML = `
-        <div class="chat">
-            <div class="chat__messages">
-                ${this._getMessagesHtml()}
-            </div>
-        </div>
-        `;
+        this.el.innerHTML = chatTemplate(this.data);
     }
 
-    _getMessagesHtml() {
-        return this.data.messages
-            .map(
-                messageObj => `
-                <span class="chat__message">
-                    ${messageObj.nickname}: ${messageObj.text}
-                </span>
-            `
-            )
-            .join(`<br>`);
-    }
 }

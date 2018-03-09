@@ -1,0 +1,6 @@
+div.chat
+    div.chat__messages
+        each messageObj in messages
+          div.chat__message
+            span= messageObj.nickname
+            p= messageObj.text
